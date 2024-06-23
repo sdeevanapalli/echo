@@ -3,7 +3,6 @@ from discord import app_commands
 from discord.ext import commands, tasks
 import os
 import datetime
-from dotenv import load_dotenv
 from random import choice
 import json
 import time
@@ -12,8 +11,6 @@ from pytz import timezone
 from keep_alive import keep_alive
 
 keep_alive()
-
-load_dotenv()
 
 client = commands.Bot(command_prefix="?", intents=discord.Intents.all())
 
@@ -36,5 +33,5 @@ async def change_status(seconds=300):
 
 
 keep_alive()
-token = os.environ.get('TOKEN')
+token = os.getenv("TOKEN")
 client.run(token)

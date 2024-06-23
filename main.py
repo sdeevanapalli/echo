@@ -9,6 +9,9 @@ import json
 import time
 import requests
 from pytz import timezone
+from keep_alive import keep_alive
+
+keep_alive()
 
 load_dotenv()
 
@@ -32,5 +35,6 @@ async def change_status(seconds=300):
                                   name=(choice(status))))
 
 
+keep_alive()
 token = os.environ.get('TOKEN')
 client.run(token)
